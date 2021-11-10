@@ -14,56 +14,6 @@
     <p>
       Cursors: <span id="cursoramount">0</span>
     </p>
-    <script>
-      
-    var score = 0;
-var cursors = 0;
-var cursorCost = 15;
-var grandmas = 0;
-var grandmaCost = 100;
-var farms = 0;
-var farmCost = 1000;
-function addToScore(amount) {
-  score = score + 1;
-document.getElementById("score").innerHTML = score;
-}
-  function purchaseCursor(amount) {
-    if (score >= cursorCost) {
-      cursors = cursors + 1;
-      score = score - cursorCost;
-      cursorCost = Math.round(cursorCost*1.2);
-      document.getElementById("cursorprice").innerHTML = cursorCost;
-      document.getElementById("cursoramount").innerHTML = cursors;
-    }
-  }
-function buyGrandma(amount) {
-  if (score >= grandmaCost) {
-    grandmas = grandmas + 1;
-    score = score - grandmaCost;  Math.round(grandmaCost*1.2);
-    document.getElementById("gcost").innerHTML = grandmaCost;
-  }
-}
-  function buyFarm(amount) {
-    if (score >= farmCost) {
-      farms = farms + 1
-      score = score - farmCost;
-      Math.round(farmCost*1.2);
-      document.getElementById("farmCost").innerHTML = farmCost;
-    }
-  }
-
-setInterval(getMoney, 1000);
-function getMoney() {
-  score = score + cursors;
-  score = score + grandmas * 5;
-  score = score + farms * 20
-}
-setInterval(updateScore, 200);
-function updateScore( {
-  score = score;
-    document.getElementById("score").innerHTML = score;
-} 
-    </script>
     <style>
       #container {
   color: rgb(255,255,200);

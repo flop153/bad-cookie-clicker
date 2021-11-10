@@ -8,6 +8,7 @@
   <div id="shop">
     <button onclick="purchaseCursor()">Purchase Cursor: <span id=cursoramount>0</span></button>
     <button onclick="buyGrandma()">Purchase Grandma: <span id="gcost">100 </span>
+      <button onclick="buyFarm()">Purchase Farm: <span id="farmCost">1000 </span>
   </div>
     <p id="cursorprice">15</p>
     <p>
@@ -20,6 +21,8 @@ var cursors = 0;
 var cursorCost = 15;
 var grandmas = 0;
 var grandmaCost = 100;
+var farms = 0;
+var farmCost = 1000;
 function addToScore(amount) {
   score = score + 1;
 document.getElementById("score").innerHTML = score;
@@ -40,16 +43,61 @@ function buyGrandma(amount) {
     document.getElementById("gcost").innerHTML = grandmaCost;
   }
 }
+  function buyFarm(amount) {
+    if (score >= farmCost) {
+      farms = farms + 1
+      score = score - farmCost;
+      Math.round(farmCost*1.2);
+      document.getElementById("farmCost").innerHTML = farmCost;
+    }
+  }
+
 setInterval(getMoney, 1000);
 function getMoney() {
   score = score + cursors;
   score = score + grandmas * 5;
+  score = score + farms * 20
 }
 setInterval(updateScore, 200);
 function updateScore( {
+  score = score;
     document.getElementById("score").innerHTML = score;
 } 
     </script>
     <style>
+      #container {
+  color: rgb(255,255,200);
+  padding:10px;
+}
+
+body {
+    background-color:rgb(20,20,20)
+}
+#cookiescore {
+  margin-left: 0%;
+  border-style:solid;
+  border-radius:10px;
+  border-width:5px;
+  margin-right:67%;
+  font-family:monospace;
+  letter-spacing:2px;
+  font-size:15px;
+}
+img:hover {
+transform(.95,.95);
+}
+img {
+  transition:1s;
+}
+#shop {
+  width:100px;
+  margin-left:84%;
+  text-spacing:2px;
+  border-style:solid;
+  border-width:3px;
+  border-radius:10px;
+  margin-bottom:10%;
+}
+    </style>
   </body>
 </div>

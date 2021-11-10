@@ -29,5 +29,9 @@ function getMoney() {
   score = score + cursors;
   score = score + grandmas * 5;
 }
+setInterval(updateScore, 200);
+function updateScore( {
+    document.getElementById("score").innerHTML = score;
+}
   
   

@@ -1,9 +1,6 @@
 <div id="container">
   <body>
     <head>
-               <link rel="stylesheet" href="styling.css">
-               <link rel="javascript" href="stuff.js"
-                     </head>
     <div id="cookiescore">
     <img src="https://www.pngall.com/wp-content/uploads/2016/07/Cookie-Download-PNG.png" width=300 onclick="addToScore(1)"> </img>
     <p id="ptscount">Cookies:<span id="score"> 0</span></p>
@@ -16,5 +13,43 @@
     <p>
       Cursors: <span id="cursoramount">0</span>
     </p>
+    <script>
+      
+    var score = 0;
+var cursors = 0;
+var cursorCost = 15;
+var grandmas = 0;
+var grandmaCost = 100;
+function addToScore(amount) {
+  score = score + 1;
+document.getElementById("score").innerHTML = score;
+}
+  function purchaseCursor(amount) {
+    if (score >= cursorCost) {
+      cursors = cursors + 1;
+      score = score - cursorCost;
+      cursorCost = Math.round(cursorCost*1.2);
+      document.getElementById("cursorprice").innerHTML = cursorCost;
+      document.getElementById("cursoramount").innerHTML = cursors;
+    }
+  }
+function buyGrandma(amount) {
+  if (score >= grandmaCost) {
+    grandmas = grandmas + 1;
+    score = score - grandmaCost;  Math.round(grandmaCost*1.2);
+    document.getElementById("gcost").innerHTML = grandmaCost;
+  }
+}
+setInterval(getMoney, 1000);
+function getMoney() {
+  score = score + cursors;
+  score = score + grandmas * 5;
+}
+setInterval(updateScore, 200);
+function updateScore( {
+    document.getElementById("score").innerHTML = score;
+} 
+    </script>
+    <style>
   </body>
 </div>
